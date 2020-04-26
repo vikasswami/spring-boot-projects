@@ -46,6 +46,7 @@ public class UserController {
 	})
 	@PostMapping("/")
 	public ResponseEntity<User> createUser(@ApiParam(value = "user") @RequestBody User user){
+		log.info("Create user :: "+user.toString());
 		User createdUser = userService.create(user);
 		if (createdUser == null)
 			return ResponseEntity.notFound().build();
